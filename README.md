@@ -1,8 +1,10 @@
 # manahilhashmi.github.io
-<!DOCTYPE html>
+
 <html>
 
 <body background="Doctor-holding-patient-hand_small.jpg">
-		<h1> Connecting doctors and patients. </h1>
+		<h1> Care360</h1>
+		<h2> Connecting doctors and patients.</h2>
+		
 </body>
 </html>
