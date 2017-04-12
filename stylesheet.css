@@ -1,0 +1,14 @@
+#navbar {
+	position: fixed;
+	top:10px;
+	left:50%;
+	margin-left:-254px;
+}
+
+#header {
+	position: relative;
+	top: -10px;
+	background-color: #3c4543;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
