@@ -2,6 +2,5 @@ body {
     
     background-image: url("bodyimg.jpg");
     background-size: 100%;
-    filter:contrast(-40%);
     background-repeat: no-repeat;
 }
