@@ -1,0 +1,27 @@
+body {
+
+    background-image: url("bodyimg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+button{
+  color:white;
+  display: block;
+  margin: 200px 40px -180px 150px;
+  padding: 7px 35px;
+  font: 300 150% Georgia;
+  background: transparent;
+  border: 3px solid #18607f;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #7f196b;
+  border: 1px solid #8b8b8b;
+}
+
+button:active {
+  background: #262b7c;
+  border: 1px solid black;
+  color: white;
+  }
