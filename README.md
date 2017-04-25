@@ -1,2 +1,0 @@
-# manahilhashmi.github.io
-
