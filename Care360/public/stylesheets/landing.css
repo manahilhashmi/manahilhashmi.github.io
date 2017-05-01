@@ -1,8 +1,5 @@
 body {
-<<<<<<< HEAD
-=======
 
->>>>>>> 0f4790466bb9b445a642e4eb1143020a650fc9e5
     background-image: url("../images/bodyimg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -31,10 +28,7 @@ button:active {
 }
 
 div.image {
-<<<<<<< HEAD
-=======
 
->>>>>>> 0f4790466bb9b445a642e4eb1143020a650fc9e5
   content:url("../images/logo.png");
   height: 250px;
   width: 30%;
