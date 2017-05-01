@@ -1,5 +1,5 @@
 body {
-    
+
     background-image: url("../images/bodyimg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@ button{
   background: transparent;
   border: 3px solid #18607f;
   cursor: pointer;
-} 
+}
 
 button:hover {
   background: white;
