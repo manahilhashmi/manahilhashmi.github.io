@@ -1,6 +1,10 @@
 body {
     
+<<<<<<< HEAD
     background-image: url("images/bodyimg.jpg");
+=======
+    background-image: url("../images/bodyimg.jpg");
+>>>>>>> 6db2ad84dfc2d6bfdde346cd5ee0cf5f3b997766
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -28,7 +32,11 @@ button:active {
 }
 
 div.image {
+<<<<<<< HEAD
   content:url("images/logo.png");
+=======
+  content:url("../images/logo.png");
+>>>>>>> 6db2ad84dfc2d6bfdde346cd5ee0cf5f3b997766
   height: 250px;
   width: 30%;
   margin: 10px 100px -190px 50px;
