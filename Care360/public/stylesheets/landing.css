@@ -1,6 +1,6 @@
 body {
     
-    background-image: url("bodyimg.jpg");
+    background-image: url("../images/bodyimg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -27,7 +27,7 @@ button:active {
 }
 
 div.image {
-  content:url("logo.png");
+  content:url("../images/logo.png");
   height: 250px;
   width: 30%;
   margin: 10px 100px -190px 50px;
