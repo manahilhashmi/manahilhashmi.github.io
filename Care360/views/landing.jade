@@ -2,10 +2,22 @@ doctype html
 html
   head
     title Care360
-    link(rel='stylesheet', type='text/css', href='landing.css')
+
+    script(type='text/javascript', src='angular.min.js')
+
+    script(type='text/javascript', src='app.js')
+
+    link(rel='icon', type='image/png', href='logo.png')
+
+    link(href='bootstrap.min.css', rel='stylesheet')
+
+    link(rel='stylesheet', type='text/css', href='stylesheets/landing.css')
+
     meta(name='viewport', content='width = device-width, initial-scale = 1')
   body
-    a(href='#', style='text-decoration: none;')
+    .image
+    a(href='docLog.html', style='text-decoration: none;')
       button.button I am a Doctor.
+
     a(href='#', style='text-decoration: none;')
       button.button I am a Patient.
