@@ -1,0 +1,25 @@
+body {
+	background-color: #222d49
+
+}
+
+div.image {
+  content:url("logo2.png");
+  height: 150px;
+  width: 20%;
+  margin: 10px 10px -190px 1100px;
+}​
+
+.header h1{
+font-style: normal;
+color: white;
+}
+
+.col-md-12 h3 {
+    color:white;
+    margin: 200px 100px -190px 30px;
+}
+
+.form {
+    margin:210px 100px -190px 30px;
+}
