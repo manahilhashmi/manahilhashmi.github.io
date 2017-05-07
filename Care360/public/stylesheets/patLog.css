@@ -4,7 +4,7 @@ body {
 }
 
 div.image {
-  content:url("logo2.png");
+  content:url("../images/logo2.png");
   height: 150px;
   width: 20%;
   margin: 10px 10px -190px 1100px;
@@ -22,4 +22,8 @@ color: white;
 
 .form {
     margin:210px 100px -190px 30px;
+}
+
+.reg {
+	margin:360px 100px -190px 30px;;
 }

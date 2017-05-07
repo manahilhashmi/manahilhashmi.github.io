@@ -16,4 +16,7 @@ router.get('/docLog',function(req,res,next) {
 router.post('/docLog',passport.authenticate('local'),function(req,res){
     console.log(req);
 });
+router.get('/patLog', function(req,res,next){
+	res.render('patLogin')
+});
 module.exports = router;
