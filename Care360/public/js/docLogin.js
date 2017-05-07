@@ -64,16 +64,24 @@
 
   });
   
-  app.factory('LoginService', function() {
+  app.factory('LoginService', function(username,password) {
     var admin = 'admin';
     var pass = 'pass';
     var isAuthenticated = false;
     var url='/docLogin'
     var data =$.param({
-       user:$scope.username
-       password:$scope.password
-    })
-    $http.post(url,data).success(function (data,status,headers,config)){console.log(data)}.error(function (data,status,headers,config)){console.log(data)}
+       user:username,
+       pass:password
+    });
+    $http.post(url,data)
+    .success( function (data,status,headers,config)
+      {
+        console.log(data)
+      })
+      .error(function (data,status,headers,config) 
+        {
+          console.log(data)
+        });
     return {
       login : function(username, password) {
         isAuthenticated = username === admin && password === pass;
