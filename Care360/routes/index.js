@@ -13,8 +13,10 @@ router.get('/docLog',function(req,res,next) {
     res.render('docLogin');
 });
 
-router.post('/docLog',passport.authenticate('local'),function(req,res){
-    console.log(req);
+router.post('/docLog',function(req,res){
+    res.send('good to go')
+    console.log(req.body.user)
+        console.log(req.body.pass)
 });
 router.get('/patLog', function(req,res,next){
 	res.render('patLogin')
