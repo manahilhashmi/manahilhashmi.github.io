@@ -64,8 +64,8 @@
 
 
   });
-
-  app.factory('LoginService', function() {
+ 
+  app.factory('LoginService', function(username,password) {
     var admin = 'admin';
     var pass = 'pass';
     var isAuthenticated = false;
