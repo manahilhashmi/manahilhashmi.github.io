@@ -65,7 +65,7 @@
 
   });
  
-  app.factory('LoginService', function(username,password) {
+  app.factory('LoginService', function() {
     var admin = 'admin';
     var pass = 'pass';
     var isAuthenticated = false;
@@ -75,7 +75,7 @@
             method:'POST',
             url:'/docLog',
             headers:{'Content-type':'application/json'},
-            data:{user:username,pass:password}
+            data:{user:username}
           }
          $http(req).then(function(req,res){console.log(req)},function(req,res){console.log(res)})
        isAuthenticated = username === admin && password === pass;
