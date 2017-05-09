@@ -39,11 +39,13 @@
 
     $scope.formSubmit = function() {
       if(LoginService.login($http,$scope.username, $scope.password)) {
+        console.log("here32")
         $scope.error = '';
         $scope.username = '';
         $scope.password = '';
         $state.transitionTo('home');
       } else {
+        console.log('here 23')
         $scope.error = "Incorrect username/password !";
       }
     };
@@ -66,8 +68,6 @@
   });
  
   app.factory('LoginService', function() {
-    var admin = 'admin';
-    var pass = 'pass';
     var isAuthenticated = false;
     return {
       login : function($http,username, password) {
@@ -78,8 +78,10 @@
             data:{username:username,password:password}
           }
          $http(req).then(function(res){
-             console.log("succes wala")
-             console.log(res.data)
+             if(req.data.message=="Invalid Passoword"){
+                isAuthenticated=false
+                return isAuthenticated
+             }
          },function(req,res){
              console.log("failure wala")
              console.log(res)

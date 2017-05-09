@@ -10,14 +10,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/docLog',function(req,res,next) {
-    res.render('docLogin');
+    res.render('docLogout');
 });
 
+router.get('/docLogout',function(req,res,next){
+    res.render('docLogout')
+})
+
+router.get('/patLogout',function(req,res,next){
+    res.render('patLogout')
+})
 passport.use(new LocalStrategy(
     function(username,password,done) {
+        console.log('here1')
     Doctor.getDoctorByUsername(username,function(err,doctor){
         if (err){console.log(err)};
         if(!doctor){
+            console.log("here2")
             return done(null,false,{message:"Unknown User"})
         }
         Doctor.comparePassword(password,doctor.password,function(err,isMatch){
@@ -40,12 +49,16 @@ passport.deserializeUser(function(doctor,done){
         done(err,doctor)
     })
 })
-router.post('/docLog',
-        passport.authenticate('local',{successRedirect:'/',failureRedirect:'/',failureFlash:false}),
-        function(req,res) {
-            console.log(req)
-            console.log(res)
-});
+router.post('/docLog',function(req,res,next){
+    passport.authenticate('local',function(err,user,info){
+        if(err){return next(err)}
+        if(!user){return res.send(info)}
+        req.LogIn(user,function(err){
+            if(err){return next(err)}
+            return res.redirect('/')
+        })
+    }) (req,res,next)
+})
 router.get('/patLog', function(req,res,next){
 	res.render('patLogin')
 });
