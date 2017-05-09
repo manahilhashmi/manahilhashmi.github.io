@@ -11,14 +11,14 @@ var mongo=require('mongodb');
 var mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost/Care360');
 var db=mongoose.connection;
-
-
+var debug=require('debug')('Care360')
+var flash=require('connect-flash')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+app.use(flash())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -36,13 +36,6 @@ app.use(expressSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-passport.use(new passportLocal.Strategy(function (username,password,done){
-    done(null,user);
-    done(null,null);
-    done(new Error('ouch'));
-}));
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

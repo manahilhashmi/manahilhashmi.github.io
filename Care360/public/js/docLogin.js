@@ -75,11 +75,15 @@
             method:'POST',
             url:'/docLog',
             headers:{'Content-type':'application/json'},
-            data:{user:username}
+            data:{username:username,password:password}
           }
-         $http(req).then(function(req,res){console.log(req)},function(req,res){console.log(res)})
-       isAuthenticated = username === admin && password === pass;
-        return isAuthenticated;
+         $http(req).then(function(res){
+             console.log("succes wala")
+             console.log(res.data)
+         },function(req,res){
+             console.log("failure wala")
+             console.log(res)
+         })
       },
       register: function() {
         isAuthenticated = true

@@ -10,11 +10,11 @@ var DoctorSchema=mongoose.Schema({
         type:String
     }
 })
-module.exports=mongoose.model('Doctor',DoctorSchema);
+var Doctor = module.exports = mongoose.model('doctors',DoctorSchema);
 
 module.exports.createDoctor=function (newDoctor,callback){
-    bycrypt.genSalt(10,function(err,salt){
-        bycrypt.hash(newDoctor.password,salt,function(err,hash){
+    bcrypt.genSalt(10,function(err,salt){
+        bcrypt.hash(newDoctor.password,salt,function(err,hash){
             newDoctor.password=hash
             newDoctor.save(callback)
         })
@@ -31,7 +31,7 @@ module.exports.getUserById=function(id,callback){
 }
 
 module.exports.comparePassword=function(candidatePassword,hash,callback){
-    bycrypt.compare(candidatePassword,hash,function(err,isMatch){
+    bcrypt.compare(candidatePassword,hash,function(err,isMatch){
         if(err) throw err
         callback(null,isMatch)
     })
