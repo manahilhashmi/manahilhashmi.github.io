@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/docLog',function(req,res,next) {
-    res.render('docLogout');
+    res.render('docLog');
 });
 
 router.get('/docLogout',function(req,res,next){
