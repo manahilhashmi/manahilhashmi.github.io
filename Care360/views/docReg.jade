@@ -15,13 +15,14 @@ html
 
     link(rel='stylesheet', type='text/css', href='../stylesheets/docReg.css')
   body
+    body(ng-controller='RegisterCtrl', ng-app='myApp')
     .image
 
 
     .row
       div(ui-view='')
 
-    body(ng-controller='RegisterCtrl', ng-app='myApp')
+    
       .col-md-12.col-md-offset-3
         h3 Dear Doctor! Please Register Yourself with Care360.
 
