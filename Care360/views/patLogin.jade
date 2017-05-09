@@ -16,7 +16,7 @@ html
     link(rel='stylesheet', type='text/css', href='stylesheets/patLog.css')
   body
     .image
-     
+    
        
     .container(ng-app='myApp')
       .row
@@ -24,7 +24,7 @@ html
          
          
       script(type='text/ng-template', id='login.html').
-        <div class="col-md-12 col-md-offset-3">
+        <div class="col-md-12">
         <h3>Dear Patient! Please Login.</h3>
         <form ng-submit="formSubmit()" class="form">
         <div class="col-md-4">
@@ -40,9 +40,10 @@ html
         </div>
         </div>
         </form>
-        <div class="reg">
+        <div class="form-group">
         <h5 style = "color:white;"> New to Care360? Please Register.</h5>
-        <button type = "submit" class = "btn btn-primary">Register</button>
+        <button onclick="location.href='docReg.html'" type ="submit" class="btn btn-primary">Register</button>
+        <!-- <button type = "submit" class = "btn btn-primary">Register</button> -->
         </div>
         </div>
          
