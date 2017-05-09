@@ -12,6 +12,9 @@ router.get('/patLogout',function(req,res,next){
     res.render('patLogout')
 })
 
+router.get('/patReg',function(req,res,next){
+    res.render('patReg')
+})
 passport.use(new LocalStrategy(
     function(username,password,done) {
     Patient.getPatientByUsername(username,function(err,patient){

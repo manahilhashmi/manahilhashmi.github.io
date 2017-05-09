@@ -12,6 +12,9 @@ router.get('/docLogout',function(req,res,next){
     res.render('docLogout')
 })
 
+router.get('/docReg',function(req,res,next){
+    res.render('docReg')
+})
 passport.use(new LocalStrategy(
     function(username,password,done) {
         console.log('here1')

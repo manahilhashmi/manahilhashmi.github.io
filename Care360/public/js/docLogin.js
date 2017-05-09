@@ -71,7 +71,7 @@
       login : function($http,username, password) {
           var req={
             method:'POST',
-            url:'doctor/docLog',
+            url:'/doctor/docLog',
             headers:{'Content-type':'application/json'},
             data:{username:username,password:password}
           }
