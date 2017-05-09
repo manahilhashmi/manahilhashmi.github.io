@@ -4,11 +4,6 @@ var passport=require('passport');
 var LocalStrategy=require('passport-local').Strategy
 var Doctor=require('../models/doctor.js')
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('landing',{
-  });
-});
-
 router.get('/docLog',function(req,res,next) {
     res.render('docLogin');
 });
@@ -17,9 +12,6 @@ router.get('/docLogout',function(req,res,next){
     res.render('docLogout')
 })
 
-router.get('/patLogout',function(req,res,next){
-    res.render('patLogout')
-})
 passport.use(new LocalStrategy(
     function(username,password,done) {
         console.log('here1')
@@ -59,7 +51,4 @@ router.post('/docLog',function(req,res,next){
         })
     }) (req,res,next)
 })
-router.get('/patLog', function(req,res,next){
-	res.render('patLogin')
-});
 module.exports = router;

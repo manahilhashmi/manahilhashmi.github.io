@@ -73,7 +73,7 @@
       login : function($http,username, password) {
           var req={
             method:'POST',
-            url:'/docLog',
+            url:'/patient/patLog',
             headers:{'Content-type':'application/json'},
             data:{username:username,password:password}
           }

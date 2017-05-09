@@ -39,13 +39,11 @@
 
     $scope.formSubmit = function() {
       if(LoginService.login($http,$scope.username, $scope.password)) {
-        console.log("here32")
         $scope.error = '';
         $scope.username = '';
         $scope.password = '';
         $state.transitionTo('home');
       } else {
-        console.log('here 23')
         $scope.error = "Incorrect username/password !";
       }
     };
@@ -73,7 +71,7 @@
       login : function($http,username, password) {
           var req={
             method:'POST',
-            url:'/docLog',
+            url:'doctor/docLog',
             headers:{'Content-type':'application/json'},
             data:{username:username,password:password}
           }
