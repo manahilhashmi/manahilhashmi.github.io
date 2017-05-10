@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+       
+    link(rel='icon', type='image/png', href='../images/logo.png')
+       
+    title Care360
+       
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+       
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+       
+    link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+       
+    link(rel='stylesheet', type='text/css', href='../stylesheets/docHome.css')
+  body
+    #mySidenav.sidenav
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
+         
+      a(href='docHome.html') Home
+         
+      a(href='#') Set Clinic Times
+         
+      a(href='#') Approve Appointments
+         
+      a(href='#') Appointment Schedule Today
+         
+      a(href='#') My Patients
+         
+      a(href='docLogout.html') Logout
+    #content
+      img.logo(src='logo2.png')
+    #info
+      ul
+        li(style='text-align: center;')  Notifications Today
+               
+        li
+           Navigate your way through Care360 by clicking on the sliding menu bar on your left.
+               
+        li  Do not forget to approve your appointments.
+               
+        li  You have n approved appointments for today.
+               
+        li  Your latest appointment is at 13:00 today. 
+               
+        li  
+    h2(style='color:white;') Hello Doctor! Welcome to Your Account on Care360.
+     
+    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630; 
+    script.
+      function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      }
