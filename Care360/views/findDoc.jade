@@ -2,32 +2,33 @@ doctype html
 html
   head
     meta(charset='UTF-8')
+       
     link(rel='icon', type='image/png', href='../images/logo.png')
+       
     title Care360
+       
     meta(name='viewport', content='width=device-width, initial-scale=1')
+       
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+       
     link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+       
     link(rel='stylesheet', type='text/css', href='../stylesheets/patHome.css')
   body
     #mySidenav.sidenav
-      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
+         
       a(href='patient/patHome') Home
+         
       a(href='patient/findDoc') Find a Doctor
-      a(href='patient/history') My Appointment History
+         
+      a(href='patient/history.html') My Appointment History
+         
       a(href='patient/patLogout') Logout
     #content
       img.logo(src='../images/logo2.png')
-    #info
-      ul
-        li(style='text-align: center;')  Notifications Today
-        li
-          Navigate your way through Care360 by clicking on the sliding menu bar on your left.
-        li  Not feeling well? Find a Doctor.
-        li  Doctors you have been to before? Go to My Appointment History.
-        li
-    h2(style='color:white;') Hello Patient! Welcome to Your Account on Care360.
-
-    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') ☰
+    h2(style='color:white; text-align:center;') Find your Doctor!
+    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630; 
     script.
       function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -35,3 +36,20 @@ html
       function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
       }
+    .dropdown
+      button.dropbtn Find Doctors By Speacialization.
+         
+      .dropdown-content
+        a(href='#') Cardiologists
+             
+        a(href='#') Psychologists
+             
+        a(href='#') Physicians
+             
+        a(href='#') ENT
+             
+        a(href='#') Pediatricians 
+             
+        a(href='#') Dermaticians 
+             
+        a(href='#') Dentists 
