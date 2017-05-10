@@ -15,10 +15,28 @@ router.get('/docLogout',function(req,res,next){
 router.get('/docReg',function(req,res,next){
     res.render('docReg')
 })
-passport.use(new LocalStrategy(
+
+router.post('/docReg',function(req,res,next){
+    var doctor={
+        fullName:req.body.FullName,
+        registrationNumber:req.body.PMDCRegistraionNumber,
+        emailId:req.body.EmailID,
+        password:req.body.Password,
+        clinicAddress:req.body.ClinicAddress,
+        contactNumber:req.body.ContactNumber,
+        Qualification:req.body.Qualification,
+        specialization:req.body.Speacialization
+    }
+    Doctor.createDoctor(doctor,function(err,doctor){
+        if(err) throw err
+    })
+    res.end('User Created')
+})
+passport.use('doctor-local',new LocalStrategy(
     function(username,password,done) {
-        console.log('here1')
+    console.log(username) 
     Doctor.getDoctorByUsername(username,function(err,doctor){
+        console.log('hello')
         if (err){console.log(err)};
         if(!doctor){
             console.log("here2")
@@ -45,12 +63,13 @@ passport.deserializeUser(function(doctor,done){
     })
 })
 router.post('/docLog',function(req,res,next){
-    passport.authenticate('local',function(err,user,info){
+    console.log('break')
+    passport.authenticate('doctor-local',function(err,user,info){
         if(err){return next(err)}
         if(!user){return res.send(info)}
-        req.LogIn(user,function(err){
+        req.logIn(user,function(err){
             if(err){return next(err)}
-            return res.redirect('/')
+            console.log('you have made it')
         })
     }) (req,res,next)
 })

@@ -2,11 +2,29 @@ var mongoose = require('mongoose')
 var bcrypt=require('bcryptjs')
 
 var DoctorSchema=mongoose.Schema({
-    username:{
+    fullName:{
+        type:String
+    },
+    registrationNumber:{
+        type:String
+    },
+    emailId:{
         type:String,
         index:true
     },
     password:{
+        type:String
+    },
+    clinicAddress:{
+        type:String
+    },
+    contactNumber:{
+        type:String
+    },
+    Qualification:{
+        type:String
+    },
+    specialization:{
         type:String
     }
 })
@@ -16,13 +34,14 @@ module.exports.createDoctor=function (newDoctor,callback){
     bcrypt.genSalt(10,function(err,salt){
         bcrypt.hash(newDoctor.password,salt,function(err,hash){
             newDoctor.password=hash
-            newDoctor.save(callback)
+            var doc=new Doctor(newDoctor)
+            doc.save(callback)
         })
     })
 }
 
-module.exports.getDoctorByUsername=function(username,callback){
-    var query={username:username}
+module.exports.getDoctorByUsername=function(emailId,callback){
+    var query={emailId:emailId}
     Doctor.findOne(query,callback)
 }
 

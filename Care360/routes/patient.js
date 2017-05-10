@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport=require('passport');
-var LocalStrategy=require('passport-local').Strategy
+var LocalStrat=require('passport-local').Strategy
 var Patient=require('../models/patient.js')
 
 /* GET users listing. */
@@ -15,7 +15,7 @@ router.get('/patLogout',function(req,res,next){
 router.get('/patReg',function(req,res,next){
     res.render('patReg')
 })
-passport.use(new LocalStrategy(
+passport.use(new LocalStrat(
     function(username,password,done) {
     Patient.getPatientByUsername(username,function(err,patient){
         if (err){console.log(err)};
