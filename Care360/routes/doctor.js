@@ -3,12 +3,14 @@ var router = express.Router();
 var passport=require('passport');
 var LocalStrategy=require('passport-local').Strategy
 var Doctor=require('../models/doctor.js')
+var Appointment=require('../models/appointments.js')
 /* GET home page. */
 router.get('/docLog',function(req,res,next) {
     res.render('docLogin');
 });
 
-router.get('/docLogout',function(req,res,next){
+router.get('/docLogout',function(req,res){
+    req.logout()
     res.render('docLogout')
 })
 
@@ -17,7 +19,30 @@ router.get('/docReg',function(req,res,next){
 })
 
 router.get('/',function(req,res,next){
-    res.render('docHome')
+    if(req.user){
+        var appoints=0
+        Appointment.getAppointmentByDoctor(req.user.fullName,function(err,appointments){
+            appoints=appointments.length
+        })
+        res.render('docHome',{Doctor:req.user.fullName,num_appointments:appoints})
+    }
+    else{
+        res.redirect('/doctor/docLog')
+        res.end()
+    }
+})
+router.get('/myPatients',function(req,res,next){
+    res.render('myPatients')
+})
+router.get('/schedule',function(req,res,next){
+    res.render('schedule')
+})
+
+router.get('/approveAppoint',function(req,res,next){
+    res.render('approveAppoint')
+})
+router.get('/setClinicTimes',function(req,res,next){
+    res.render('setClinicTimes')
 })
 router.post('/docReg',function(req,res,next){
     var doctor={

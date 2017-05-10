@@ -18,17 +18,17 @@ html
     #mySidenav.sidenav
       a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
 
-      a(href='doctor/docHome') Home
+      a(href='/doctor/docHome') Home
 
-      a(href='doctor/setClinicTimes') Set Clinic Times
+      a(href='/doctor/setClinicTimes') Set Clinic Times
 
-      a(href='doctor/approveAppoint') Approve Appointments
+      a(href='/doctor/approveAppoint') Approve Appointments
 
-      a(href='doctor/schedule') Appointment Schedule Today
+      a(href='/doctor/schedule') Appointment Schedule Today
 
-      a(href='doctor/myPatients') My Patients
+      a(href='/doctor/myPatients') My Patients
 
-      a(href='doctor/docLogout') Logout
+      a(href='/doctor/docLogout') Logout
     #content
       img.logo(src='../images/logo2.png')
     #info
@@ -40,12 +40,12 @@ html
 
         li  Do not forget to approve your appointments.
 
-        li  You have n approved appointments for today.
+        li  You have !{num_appointments} approved appointments for today.
 
         li  Your latest appointment is at 13:00 today.
 
         li
-    h2(style='color:white;') Hello Doctor! Welcome to Your Account on Care360.
+    h2(style='color:white;') Hello !{Doctor} ! Welcome to Your Account on Care360.
 
     span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630;
     script.

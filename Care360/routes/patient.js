@@ -8,7 +8,8 @@ var Patient=require('../models/patient.js')
 router.get('/patLog', function(req, res, next) {
   res.render('patLogin');
 });
-router.get('/patLogout',function(req,res,next){
+router.get('/patLogout',function(req,res){
+    req.logout()
     res.render('patLogout')
 })
 
