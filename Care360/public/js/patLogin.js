@@ -34,21 +34,26 @@
       });
   }]);
 
-  app.controller('LoginController', function($http,$scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('LoginController', function($window,$http,$scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "Login";
+    $scope.formSubmit=function(){
+    var req={
+            method:'POST',
+            url:'/patient/patLog',
+            headers:{'Content-type':'application/json'},
+            data:{username:$scope.username,password:$scope.password}
+        }
+        $http(req).then(function(res){
+        if(res.data.message=="Invalid password"){
+            $scope.error="Invalid password"
+        }
+        else if(res.data.message=="authenticated"){
+            $window.location.href='/patient/' 
+        }
+        })
+    }
 
-    $scope.formSubmit = function() {
-      if(LoginService.login($http,$scope.username, $scope.password)) {
-        $scope.error = '';
-        $scope.username = '';
-        $scope.password = '';
-        $state.transitionTo('home');
-      } else {
-        $scope.error = "Incorrect username/password !";
-      }
-    };
-
-  });
+});
 
   app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "Login";

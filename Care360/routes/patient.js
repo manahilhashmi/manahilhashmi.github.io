@@ -15,19 +15,21 @@ router.get('/patLogout',function(req,res,next){
 router.get('/patReg',function(req,res,next){
     res.render('patReg')
 })
+
+router.get('/',function(req,res,next){
+    res.render('patHome')
+})
 passport.use(new LocalStrat(
     function(username,password,done) {
     Patient.getPatientByUsername(username,function(err,patient){
         if (err){console.log(err)};
         if(!patient){
-            console.log("here2")
             return done(null,false,{message:"Unknown User"})
         }
-        Patient.comparePassword(password,password.password,function(err,isMatch){
+        Patient.comparePassword(password,patient.password,function(err,isMatch){
             if (err) throw err;
             if(isMatch){
-                console.log("authenticated")
-                return done(null,patient)
+                return done(null,patient,{message:'authenticated'})
             } else {
                 console.log(patient)
                 return done(null,false,{message:'Invalid password'})
@@ -36,7 +38,7 @@ passport.use(new LocalStrat(
     })
 }));
 passport.serializeUser(function(patient,done){
-    done(null,patient.id )
+    done(null,patient._id )
 })
 passport.deserializeUser(function(patient,done){
     Patient.getPatientById(id,function(err,patient){
@@ -47,11 +49,26 @@ router.post('/patLog',function(req,res,next){
     passport.authenticate('local',function(err,user,info){
         if(err){return next(err)}
         if(!user){return res.send(info)}
-        req.LogIn(user,function(err){
+        req.logIn(user,function(err){
             if(err){return next(err)}
-            return res.redirect('/')
+            res.send({patient:user,message:info.message}) 
         })
     }) (req,res,next)
 })
 
+router.post('/patReg',function(req,res,next){
+    var patient={
+        fullName:req.body.FullName,
+        contactNumber:req.body.ContactNumber,
+        emailId:req.body.EmailID,
+        password:req.body.Password,
+        age:req.body.Age,
+        weight:req.body.Weight,
+        height:req.body.Height,
+    }
+    Patient.createPatient(patient,function(err,patient){
+        if(err) throw err
+    })
+    res.end('User Created')
+})
 module.exports = router;

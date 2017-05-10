@@ -16,6 +16,9 @@ router.get('/docReg',function(req,res,next){
     res.render('docReg')
 })
 
+router.get('/',function(req,res,next){
+    res.render('docHome')
+})
 router.post('/docReg',function(req,res,next){
     var doctor={
         fullName:req.body.FullName,
@@ -34,42 +37,38 @@ router.post('/docReg',function(req,res,next){
 })
 passport.use('doctor-local',new LocalStrategy(
     function(username,password,done) {
-    console.log(username) 
     Doctor.getDoctorByUsername(username,function(err,doctor){
-        console.log('hello')
         if (err){console.log(err)};
         if(!doctor){
-            console.log("here2")
             return done(null,false,{message:"Unknown User"})
         }
         Doctor.comparePassword(password,doctor.password,function(err,isMatch){
             if (err) throw err;
             if(isMatch){
-                console.log("authenticated")
-                return done(null,doctor)
+                return done(null,doctor,{message:'authenticated'})
             } else {
-                console.log(doctor)
                 return done(null,false,{message:'Invalid password'})
             }
         })
     })
 }));
 passport.serializeUser(function(doctor,done){
-    done(null,doctor.id )
+    done(null,doctor._id)
 })
-passport.deserializeUser(function(doctor,done){
+passport.deserializeUser(function(id,done){
     Doctor.getDoctorById(id,function(err,doctor){
         done(err,doctor)
     })
 })
 router.post('/docLog',function(req,res,next){
-    console.log('break')
     passport.authenticate('doctor-local',function(err,user,info){
         if(err){return next(err)}
-        if(!user){return res.send(info)}
+        if(!user){
+            return res.send(info)
+        }
         req.logIn(user,function(err){
             if(err){return next(err)}
-            console.log('you have made it')
+            res.send({doctor:user,message:info.message})
         })
     }) (req,res,next)
 })

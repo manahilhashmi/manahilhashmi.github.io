@@ -2,11 +2,26 @@ var mongoose = require('mongoose')
 var bcrypt=require('bcryptjs')
 
 var PatientSchema=mongoose.Schema({
-    username:{
+    fullName:{
+        type:String
+    },
+    ContactNumber:{
+        type:String
+    },
+    emailId:{
         type:String,
         index:true
     },
     password:{
+        type:String
+    },
+    age:{
+        type:String
+    },
+    weight:{
+        type:String
+    },
+    height:{
         type:String
     }
 })
@@ -15,14 +30,15 @@ var Patient = module.exports = mongoose.model('patients',PatientSchema);
 module.exports.createPatient=function (newPatient,callback){
     bcrypt.genSalt(10,function(err,salt){
         bcrypt.hash(newPatient.password,salt,function(err,hash){
-            newPatient.password=hash
-            newPatient.save(callback)
+            var patient=new Patient(newPatient)
+            patient.password=hash
+            patient.save(callback)
         })
     })
 }
 
-module.exports.getPatientByUsername=function(username,callback){
-    var query={username:username}
+module.exports.getPatientByUsername=function(emailId,callback){
+    var query={emailId:emailId}
     Patient.findOne(query,callback)
 }
 

@@ -34,20 +34,28 @@
       });
   }]);
 
-  app.controller('LoginController', function($http,$scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('LoginController', function($http,$window,$scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "Login";
 
     $scope.formSubmit = function() {
-      if(LoginService.login($http,$scope.username, $scope.password)) {
-        $scope.error = '';
-        $scope.username = '';
-        $scope.password = '';
-        $state.transitionTo('home');
-      } else {
-        $scope.error = "Incorrect username/password !";
-      }
+        var req={
+            method:'POST',
+            url:'/doctor/docLog',
+            headers:{'Content-type':'application/json'},
+            data:{username:$scope.username,password:$scope.password}
+        }
+        $http(req).then(function(res){
+        if(res.data.message=="Invalid password"){
+            $scope.error="Invalid password"
+        }
+        else if(res.data.message=="authenticated"){
+            $window.location.href="/doctor/"
+        }
+        else if(res.data.message=="Unknown User"){
+            $scope.error="Invalid username"
+        }
+        })
     };
-
   });
 
   app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
@@ -64,27 +72,9 @@
 
 
   });
- 
   app.factory('LoginService', function() {
     var isAuthenticated = false;
     return {
-      login : function($http,username, password) {
-          var req={
-            method:'POST',
-            url:'/doctor/docLog',
-            headers:{'Content-type':'application/json'},
-            data:{username:username,password:password}
-          }
-         $http(req).then(function(res){
-             if(req.data.message=="Invalid Passoword"){
-                isAuthenticated=false
-                return isAuthenticated
-             }
-         },function(req,res){
-             console.log("failure wala")
-             console.log(res)
-         })
-      },
       register: function() {
         isAuthenticated = true
     },

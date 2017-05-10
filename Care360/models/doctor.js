@@ -45,7 +45,7 @@ module.exports.getDoctorByUsername=function(emailId,callback){
     Doctor.findOne(query,callback)
 }
 
-module.exports.getUserById=function(id,callback){
+module.exports.getDoctorById=function(id,callback){
     Doctor.findById(id,callback)
 }
 
