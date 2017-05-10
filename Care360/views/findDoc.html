@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Care360</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel="stylesheet" type="text/css" href="patHome.css"
+  
+
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="patHome.html">Home</a>
+  <a href="findDoc">Find a Doctor</a>
+  <a href="history.html">My Appointment History</a>
+  <a href="patLogout.html">Logout</a>
+</div>
+
+<div id="content">
+    <img src="logo2.png" class="logo"/>
+</div>
+
+
+<h2 style = "color:white; text-align:center;">Find your Doctor!</h2>
+
+<span style="font-size:30px;cursor:pointer;color:white;"" onclick="openNav()">&#9776; </span>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+<div class="dropdown">
+  <button class="dropbtn">Find Doctors By Speacialization.</button>
+  <div class="dropdown-content">
+    <a href="#">Cardiologists</a>
+    <a href="#">Psychologists</a>
+    <a href="#">Physicians</a>
+    <a href="#">ENT</a>
+    <a href="#">Pediatricians </a>
+    <a href="#">Dermaticians </a>
+    <a href="#">Dentists </a>
+  </div>
+</div>
+
+
+     
+</body>
+</html> 

@@ -13,30 +13,27 @@ html
        
     link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
        
-    link(rel='stylesheet', type='text/css', href='../stylesheets/docHome.css')
+    link(rel='stylesheet', type='text/css', href='../stylesheets/patHome.css')
   body
     #mySidenav.sidenav
       a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
          
-      a(href='doctor/docHome') Home
+      a(href='/patient/patHome') Home
          
-      a(href='doctor/setClinicTimes') Set Clinic Times
+      a(href='/patient/findDoc') Find a Doctor
          
-      a(href='doctor/approveAppoint') Approve Appointments
+      a(href='/patient/history') My Appointment History
          
-      a(href='doctor/schedule') Appointment Schedule Today
-         
-      a(href='doctor/myPatients') My Patients
-         
-      a(href='doctor/docLogout') Logout
+      a(href='/patient/patLogout') Logout
     #content
       img.logo(src='../images/logo2.png')
-    h2(style='color:white; text-align:center;') Today&apos;s Schedule
+    h2(style='color:white;') Hello Patient! View your appointment history.
+     
     span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630; 
     script.
       function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
       }
       function closeNav() {
-      document.getElementBy/Id("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").style.width = "0";
       }
