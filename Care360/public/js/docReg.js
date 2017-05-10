@@ -10,7 +10,7 @@ myApp.controller("RegisterCtrl", function ($window,$scope,$http) {
             headers:{'Content-Type':'application/json'}
         }).success(function(res){
             if (res=="User Created"){
-                $window.location.href='/doctor/docLog'
+                $window.location.href='/doctor/docLogin'
             }
         })
     }
