@@ -2,46 +2,32 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-       
-    link(rel='icon', type='image/png', href='../images/logo.png')
-       
+    link(rel='icon', type='image/png', href='logo.png')
     title Care360
-       
     meta(name='viewport', content='width=device-width, initial-scale=1')
-       
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
-       
     link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-       
-    link(rel='stylesheet', type='text/css', href='../sytlesheets/patHome.css')
+    link(rel='stylesheet', type='text/css', href='patHome.css', <='', head='')
   body
     #mySidenav.sidenav
-      a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
-         
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
       a(href='patHome.html') Home
-         
-      a(href='#') Find a Doctor
-         
-      a(href='#') My Appointment History
-         
+      a(href='findDoc.html') Find a Doctor
+      a(href='hisotry.html') My Appointment History
       a(href='patLogout.html') Logout
     #content
-      img.logo(src='../images/logo2.png')
+      img.logo(src='logo2.png')
     #info
       ul
         li(style='text-align: center;')  Notifications Today
-               
         li
-           Navigate your way through Care360 by clicking on the sliding menu bar on your left.
-               
+          | Navigate your way through Care360 by clicking on the sliding menu bar on your left.
         li  Not feeling well? Find a Doctor.
-               
         li  Doctors you have been to before? Go to My Appointment History.
-               
         li  
     h2(style='color:white;') Hello Patient! Welcome to Your Account on Care360.
-     s
-    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630; 
+    | s
+    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') ☰ 
     script.
       function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
