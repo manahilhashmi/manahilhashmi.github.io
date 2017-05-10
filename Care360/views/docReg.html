@@ -24,7 +24,8 @@
    
       <h3>Dear Doctor! Please Register Yourself with Care360.</h3>
       
-      <form ng-submit="formSubmit()" class="form">
+      <!-- <form ng-submit="formSubmit()" class="form"> -->
+      <form action = "" method = "post">
         <div class="col-md-5">
           <div class="form-group">
             <input type="text" class="form-control" ng-model="Full Name" placeholder="Full Name" required=""/>
@@ -57,7 +58,8 @@
           </div> 
 
           <div class="form-group">
-            <button type="submit" class="btn btn-success">Register</button>
+            <input type="submit" name="Register" value="Register" />
+            
             </div>
 
             
