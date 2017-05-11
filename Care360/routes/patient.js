@@ -57,7 +57,97 @@ router.get('/patient/',function(req,res,next){
     res.end()
    }
 })
-
+router.get('/patient/cardiologist',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("cardiologists",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/psychologist',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("psychologist",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/physicians',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("physicians",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/ent',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("ent",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/pediatrician',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("pediatrician",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/dermatician',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("dermatician",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+})
+router.get('/patient/dentist',function(req,res,next){
+   if(req.user){
+        var doctors=[]
+        Doctor.getDoctorBytype("dentist",function(err,docs){
+            doctors=docs
+        });
+        res.render('findDoc',{})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
+   }
+}
 router.get('/doctor/',function(req,res,next){
     if(req.user){
         var appoints=0
@@ -200,4 +290,5 @@ router.post('/doctor/docLog',function(req,res,next){
         })
     }) (req,res,next)
 })
+
 module.exports = router;

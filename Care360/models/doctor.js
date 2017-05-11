@@ -44,7 +44,10 @@ module.exports.getDoctorByUsername=function(emailId,callback){
     var query={emailId:emailId}
     Doctor.findOne(query,callback)
 }
-
+module.exports.getDoctorBytype=function(type,callback){
+    var query={specialization:type}
+    Doctor.find(query,callback)
+}
 module.exports.getDoctorById=function(id,callback){
     Doctor.findById(id,callback)
 }
