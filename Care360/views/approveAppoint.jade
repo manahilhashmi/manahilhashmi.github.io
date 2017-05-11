@@ -2,38 +2,25 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-
-    link(rel='icon', type='image/png', href='../images/logo.png')
-
+    link(rel='icon', type='image/png', href='logo.png')
     title Care360
-
     meta(name='viewport', content='width=device-width, initial-scale=1')
-
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
-
     link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-
-    link(rel='stylesheet', type='text/css', href='../stylesheets/docHome.css')
+    link(rel='stylesheet', type='text/css', href='docHome.css', <='', head='')
   body
     #mySidenav.sidenav
-      a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
-
-      a(href='/doctor/docHome') Home
-
-      a(href='/doctor/setClinicTimes') Set Clinic Times
-
-      a(href='/doctor/approveAppoint') Approve Appointments
-
-      a(href='/doctor/schedule') Appointment Schedule Today
-
-      a(href='/doctor/myPatients') My Patients
-
-      a(href='/doctor/docLogout') Logout
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='docHome.html') Home
+      a(href='setClinicTime.html') Set Clinic Times
+      a(href='approveAppoint.html') Approve Appointments
+      a(href='schedule.html') Appointment Schedule Today
+      a(href='myPatients.html') My Patients
+      a(href='docLogout.html') Logout
     #content
-      img.logo(src='../images/logo2.png')
-
+      img.logo(src='logo2.png')
     h2(style='color:white; text-align:center;') Approve Pending Appointments
-    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630;
+    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') ☰ 
     script.
       function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -41,3 +28,27 @@ html
       function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
       }
+    table(border='1', width='100%')
+      tr
+        td
+          table(border='1', width='100%')
+            tr
+              th Name
+              th Time
+              th Date
+            tr
+              td Haseeb Naseem
+              td 12:00
+              td 11/05/17
+            tr
+              td Shabbir Hussein
+              td 12:30
+              td 11/05/17
+            tr
+              td Zain Qasmi
+              td 12:00
+              td 12/05/17
+            tr
+              td Suleman Shahid
+              td 1:30
+              td 12/05/17
