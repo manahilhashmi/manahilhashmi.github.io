@@ -18,16 +18,16 @@ html
     #mySidenav.sidenav
       a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
          
-      a(href='patient/patHome') Home
+      a(href='/patient/patHome') Home
          
-      a(href='patient/findDoc') Find a Doctor
+      a(href='/patient/findDoc') Find a Doctor
          
-      a(href='patient/history') My Appointment History
+      a(href='/patient/history') My Appointment History
          
-      a(href='patient/patLogout') Logout
+      a(href='/patient/patLogout') Logout
     #content
       img.logo(src='../images/logo2.png')
-    h2(style='color:white; text-align:center;') Find your Doctor!
+    h2(style='color:white; text-align:center;') Cardiologists
     span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630; 
     script.
       function openNav() {
@@ -36,20 +36,21 @@ html
       function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
       }
-    .dropdown
-      button.dropbtn Find Doctors By Speacialization.
+    table
+      tr
+        th Name
+             
+        th Email ID
+             
+        th Contact Number
+             
+        th Address 
          
-      .dropdown-content
-        a(href='/patient/cardio') Cardiologists
-             
-        a(href='#') Psychologists
-             
-        a(href='#') Physicians
-             
-        a(href='#') ENT
-             
-        a(href='#') Pediatricians 
-             
-        a(href='#') Dermaticians 
-             
-        a(href='#') Dentists 
+      tr
+        td  Dr. Shahid Rehman 
+           
+        td  shahid.rehman@gmail.com 
+           
+        td  92-333 678 9210 
+           
+        td  Defence Medical Center Y block DHA 
