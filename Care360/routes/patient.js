@@ -63,7 +63,7 @@ router.get('/patient/cardiologist',function(req,res,next){
         Doctor.getDoctorBytype("cardiologists",function(err,docs){
             doctors=docs
         });
-        res.render('findDoc',{})
+        res.render('findDoc',{doctors:doctors})
    }
    else {
     res.redirect('/patient/patLog')
