@@ -59,11 +59,7 @@ router.get('/patient/',function(req,res,next){
 })
 router.get('/patient/cardiologist',function(req,res,next){
    if(req.user){
-        var doctors=[]
-        Doctor.getDoctorBytype("cardiologists",function(err,docs){
-            doctors=docs
-        });
-        res.render('findDoc',{doctors:doctors})
+        res.render('cardiologist')
    }
    else {
     res.redirect('/patient/patLog')
@@ -147,7 +143,7 @@ router.get('/patient/dentist',function(req,res,next){
     res.redirect('/patient/patLog')
     res.end()
    }
-}
+})
 router.get('/doctor/',function(req,res,next){
     if(req.user){
         var appoints=0
