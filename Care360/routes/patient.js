@@ -50,12 +50,15 @@ router.get('/doctor/docReg',function(req,res,next){
 })
 router.get('/patient/',function(req,res,next){
    if(req.user){
-        res.render('patHome',{})
+        res.render('patHome',{Patient:req.user.fullName})
+   }
+   else {
+    res.redirect('/patient/patLog')
+    res.end()
    }
 })
 
 router.get('/doctor/',function(req,res,next){
-    console.log(req)
     if(req.user){
         var appoints=0
         Appointment.getAppointmentByDoctor(req.user.fullName,function(err,appointments){
