@@ -90,3 +90,26 @@ li {
     
 }
 
+table {
+    border-collapse: collapse;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color: #f2f2f2;
+}
+/*tr:nth-child(even){background-color: #f2f2f2}
+*/
+th {
+    background-color: #b2899d;
+    color: white;
+}
+
