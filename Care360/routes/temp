@@ -1,0 +1,15 @@
+router.post('/patReg',function(req,res,next){
+    var patient={
+        fullName:req.body.FullName,
+        contactNumber:req.body.ContactNumber,
+        emailId:req.body.EmailID,
+        password:req.body.Password,
+        age:req.body.Age,
+        weight:req.body.Weight,
+        height:req.body.Height,
+    }
+    Patient.createPatient(patient,function(err,patient){
+        if(err) throw err
+    })
+    res.end('User Created')
+})

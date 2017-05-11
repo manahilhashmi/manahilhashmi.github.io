@@ -42,7 +42,7 @@ module.exports.getPatientByUsername=function(emailId,callback){
     Patient.findOne(query,callback)
 }
 
-module.exports.getUserById=function(id,callback){
+module.exports.getPatientById=function(id,callback){
     Patient.findById(id,callback)
 }
 

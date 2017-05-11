@@ -14,8 +14,6 @@ var db=mongoose.connection;
 var debug=require('debug')('Care360')
 var flash=require('connect-flash')
 
-var doctor = require('./routes/doctor');
-var main = require('./routes/main');
 var patient = require('./routes/patient');
 
 var app = express();
@@ -26,22 +24,10 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(expressSession({
-    secret:process.env.SESSION_SECRET || 'secretHaseeb',
-    resave:false,
-    saveUninitialized:false
-}));
 
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',main)
-app.use('/doctor', doctor);
-app.use('/patient', patient);
+app.use('/', patient);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
