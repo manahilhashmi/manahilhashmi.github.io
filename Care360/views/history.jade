@@ -2,34 +2,24 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-
-    link(rel='icon', type='image/png', href='../images/logo.png')
-
+    link(rel='icon', type='image/png', href='logo.png')
     title Care360
-
     meta(name='viewport', content='width=device-width, initial-scale=1')
-
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
-
     link(rel='stylesheet prefetch', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-
-    link(rel='stylesheet', type='text/css', href='../stylesheets/patHome.css')
+    link(rel='stylesheet', type='text/css', href='patHome.css', <='', head='')
   body
     #mySidenav.sidenav
-      a.closebtn(href='javascript:void(0)', onclick='closeNav()') &times;
-
-      a(href='/patient/') Home
-
-      a(href='/patient/findDoc') Find a Doctor
-
-      a(href='/patient/history') My Appointment History
-
-      a(href='/patient/patLogout') Logout
+      a.closebtn(href='javascript:void(0)', onclick='closeNav()') ×
+      a(href='patHome.html') Home
+      a(href='#') Find a Doctor
+      a(href='history.html') My Appointment History
+      a(href='patLogout.html') Logout
     #content
-      img.logo(src='../images/logo2.png')
+      img.logo(src='logo2.png')
     h2(style='color:white;') Hello Patient! View your appointment history.
-
-    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') &#x2630;
+    | s
+    span(style='font-size:30px;cursor:pointer;color:white;', onclick='openNav()') ☰ 
     script.
       function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -37,3 +27,27 @@ html
       function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
       }
+    table(border='1', width='100%')
+      tr
+        td
+          table(border='1', width='100%')
+            tr
+              th Doctor Name
+              th Time
+              th Date
+            tr
+              td Omair Shaikh
+              td 14:00
+              td 01/05/17
+            tr
+              td Hassan Hasan
+              td 11:30
+              td 05/05/17
+            tr
+              td Naruto Uzumaki
+              td 12:00
+              td 07/05/17
+            tr
+              td Junaid Siddiqui
+              td 16:30
+              td 10/05/17
