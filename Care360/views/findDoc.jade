@@ -53,3 +53,14 @@ html
         a(href='#') Dermaticians
 
         a(href='#') Dentists
+
+      #heading
+      h1 Doctors
+      label !{doctors} 
+    #content1
+      
+       var doc = doctors
+        each item in doc
+        label= item.Name
+        label= item.Number
+        label=item.Address
